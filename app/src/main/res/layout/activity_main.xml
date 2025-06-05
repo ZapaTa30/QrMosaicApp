@@ -1,99 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:padding="24dp">
 
-    <ImageView
-        android:id="@+id/logoutIcon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:src="@drawable/ic_logout"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="20dp"
-        android:contentDescription="Logout" />
-
-    <ScrollView
+    <Button
+        android:id="@+id/btnScan"
+        android:text="Scan QR"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/logoutIcon"
-        android:fillViewport="true">
+        android:layout_height="wrap_content" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="32dp">
+    <Button
+        android:id="@+id/btnGenerate"
+        android:text="Generate QR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/ic_launcher_round"
-                android:layout_gravity="center"
-                android:layout_marginBottom="16dp" />
+    <Button
+        android:id="@+id/btnLogout"
+        android:text="Logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
 
-            <TextView
-                android:id="@+id/tvAppName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="QRMosaicApp"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                android:textColor="@color/purple_500"
-                android:layout_gravity="center"
-                android:layout_marginBottom="32dp" />
+    <Button
+        android:id="@+id/btnEncode"
+        android:text="Encode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" />
 
-            <Button
-                android:id="@+id/btnEncode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Encode/Generate Mosaic QR"
-                android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_encode"
-                android:drawablePadding="12dp"
-                android:textSize="18sp"
-                android:padding="18dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_button"
-                android:textColor="@color/purple_500" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Pick file/image or capture photo, convert to mosaic QR"
-                android:textColor="#888888"
-                android:textSize="13sp"
-                android:paddingLeft="8dp"
-                android:paddingBottom="10dp"
-                android:gravity="start"
-                />
-
-            <Button
-                android:id="@+id/btnDecode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Scan/Decode Mosaic QR"
-                android:textAllCaps="false"
-                android:drawableLeft="@drawable/ic_scan"
-                android:drawablePadding="12dp"
-                android:textSize="18sp"
-                android:padding="18dp"
-                android:background="@drawable/rounded_button"
-                android:textColor="@color/purple_500"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Scan single or mosaic QR, decode and restore original file"
-                android:textColor="#888888"
-                android:textSize="13sp"
-                android:paddingLeft="8dp"
-                android:paddingBottom="10dp"
-                android:gravity="start"
-                />
-
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+</LinearLayout>
