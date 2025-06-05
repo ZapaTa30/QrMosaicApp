@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnSignup.setOnClickListener {
-            // For offline: just save user
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty()) {
