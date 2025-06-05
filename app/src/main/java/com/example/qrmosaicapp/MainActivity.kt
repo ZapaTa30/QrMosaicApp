@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnEncode.setOnClickListener {
-            // EncodeActivity call
             startActivity(Intent(this, EncodeActivity::class.java))
         }
 
