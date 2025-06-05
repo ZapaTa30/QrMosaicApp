@@ -20,7 +20,7 @@
         android:layout_marginTop="16dp" />
 
     <ImageView
-        android:id="@+id/imageViewQr"
+        android:id="@+id/imageViewMosaic"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="28dp"/>
