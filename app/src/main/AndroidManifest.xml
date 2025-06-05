@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.qrmosaicapp">
 
-    <!-- Permissions -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -16,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QRMosaicApp">
 
-        <!-- LoginActivity as launcher -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -29,6 +27,6 @@
         <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".QRScannerActivity" android:exported="false" />
         <activity android:name=".QRGeneratorActivity" android:exported="false" />
-
+        <activity android:name=".EncodeActivity" android:exported="false" />
     </application>
 </manifest>
