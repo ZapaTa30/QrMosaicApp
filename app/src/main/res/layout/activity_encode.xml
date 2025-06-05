@@ -1,27 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+package com.example.qrmosaicapp
 
-    <Button
-        android:id="@+id/btnPickFromGallery"
-        android:text="Pick Image from Gallery"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.qrmosaicapp.auth.AuthManager
+import com.example.qrmosaicapp.databinding.ActivityMainBinding
 
-    <Button
-        android:id="@+id/btnCaptureFromCamera"
-        android:text="Capture Image from Camera"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var auth: AuthManager
 
-    <ImageView
-        android:id="@+id/imageViewQr"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="28dp"/>
-</LinearLayout>
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        auth = AuthManager(this)
+
+        // Login check
+        if (!auth.isUserLoggedIn()) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
+
+        binding.btnScan.setOnClickListener {
+            startActivity(Intent(this, QRScannerActivity::class.java))
+        }
+
+        binding.btnGenerate.setOnClickListener {
+            startActivity(Intent(this, QRGeneratorActivity::class.java))
+        }
+
+        binding.btnEncode.setOnClickListener {
+            // EncodeActivity call
+            startActivity(Intent(this, EncodeActivity::class.java))
+        }
+
+        binding.btnLogout.setOnClickListener {
+            auth.logout()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
+}
