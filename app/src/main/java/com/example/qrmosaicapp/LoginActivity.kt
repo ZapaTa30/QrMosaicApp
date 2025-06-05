@@ -22,10 +22,16 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty()) {
-                auth.saveUser(email, password)
-                Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+                val (savedEmail, savedPassword) = auth.getUser()
+                if (savedEmail == null) {
+                    Toast.makeText(this, "Account not found, please sign up first!", Toast.LENGTH_SHORT).show()
+                } else if (email == savedEmail && password == savedPassword) {
+                    Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                } else {
+                    Toast.makeText(this, "Incorrect email or password.", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
@@ -36,9 +42,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.etPassword.text.toString()
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 auth.saveUser(email, password)
-                Toast.makeText(this, "Account created!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
+                Toast.makeText(this, "Account created! Now login.", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Please enter email and password", Toast.LENGTH_SHORT).show()
             }
