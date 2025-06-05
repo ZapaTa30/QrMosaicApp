@@ -1,2 +1,2 @@
-rootProject.name = "QRMosaicApp"
+rootProject.name = "QrMosaicApp"
 include ':app'
