@@ -1,37 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:gravity="center"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:background="@color/white">
 
-    <Button
-        android:id="@+id/btnScan"
-        android:text="Scan QR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/btnGenerate"
-        android:text="Generate QR"
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        android:padding="32dp">
 
-    <Button
-        android:id="@+id/btnLogout"
-        android:text="Logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        <!-- App Logo or Icon -->
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher_round"
+            android:layout_marginBottom="12dp" />
 
-    <!-- Add this Encode button -->
-    <Button
-        android:id="@+id/btnEncode"
-        android:text="Encode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QRMosaicApp"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_500"
+            android:layout_marginBottom="32dp" />
 
-</LinearLayout>
+        <!-- Scan QR Button -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:layout_marginBottom="18dp"
+            android:elevation="2dp">
+
+            <Button
+                android:id="@+id/btnScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan QR"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_scan"
+                android:background="@android:color/transparent"
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan mosaic/super QR codes for large files"
+                android:textColor="#888888"
+                android:textSize="13sp"
+                android:paddingLeft="16dp"
+                android:paddingBottom="6dp" />
+        </LinearLayout>
+
+        <!-- Generate QR Button -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:layout_marginBottom="18dp"
+            android:elevation="2dp">
+
+            <Button
+                android:id="@+id/btnGenerate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Generate QR"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_generate"
+                android:background="@android:color/transparent"
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Select file and create mosaic QR collage"
+                android:textColor="#888888"
+                android:textSize="13sp"
+                android:paddingLeft="16dp"
+                android:paddingBottom="6dp" />
+        </LinearLayout>
+
+        <!-- Encode Button -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:layout_marginBottom="18dp"
+            android:elevation="2dp">
+
+            <Button
+                android:id="@+id/btnEncode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Encode"
+                android:textAllCaps="false"
+                android:drawableLeft="@drawable/ic_encode"
+                android:background="@android:color/transparent"
+                android:textColor="@color/purple_500"
+                android:textSize="18sp"
+                android:padding="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Camera se image capture ya file encode"
+                android:textColor="#888888"
+                android:textSize="13sp"
+                android:paddingLeft="16dp"
+                android:paddingBottom="6dp" />
+        </LinearLayout>
+
+        <!-- Logout Button (separate) -->
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/purple_700"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="12dp"
+            android:padding="14dp"
+            android:textSize="16sp"
+            android:drawableLeft="@drawable/ic_logout" />
+
+    </LinearLayout>
+</ScrollView>
