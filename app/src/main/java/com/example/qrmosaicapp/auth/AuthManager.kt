@@ -26,4 +26,9 @@ class AuthManager(context: Context) {
     fun logout() {
         prefs.edit().clear().apply()
     }
+
+    // Sync user to server (dummy, implement server-side later)
+    fun syncUserIfNeeded() {
+        // TODO: If internet available, sync with server
+    }
 }
