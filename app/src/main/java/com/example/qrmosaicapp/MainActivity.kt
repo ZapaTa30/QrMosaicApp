@@ -2,6 +2,7 @@ package com.example.qrmosaicapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.qrmosaicapp.auth.AuthManager
 import com.example.qrmosaicapp.databinding.ActivityMainBinding
@@ -17,29 +18,28 @@ class MainActivity : AppCompatActivity() {
 
         auth = AuthManager(this)
 
-        // Login check
+        // If not logged in, redirect to login
         if (!auth.isUserLoggedIn()) {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
         }
 
-        binding.btnScan.setOnClickListener {
-            startActivity(Intent(this, QRScannerActivity::class.java))
+        // Logout icon
+        findViewById<ImageView>(R.id.logoutIcon).setOnClickListener {
+            auth.logout()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
 
-        binding.btnGenerate.setOnClickListener {
-            startActivity(Intent(this, QRGeneratorActivity::class.java))
-        }
-
+        // Encode mosaic QR
         binding.btnEncode.setOnClickListener {
             startActivity(Intent(this, EncodeActivity::class.java))
         }
 
-        binding.btnLogout.setOnClickListener {
-            auth.logout()
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+        // Decode mosaic QR
+        binding.btnDecode.setOnClickListener {
+            startActivity(Intent(this, DecodeActivity::class.java))
         }
     }
 }
