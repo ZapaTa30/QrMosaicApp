@@ -17,26 +17,29 @@ class MainActivity : AppCompatActivity() {
 
         auth = AuthManager(this)
 
+        // Check if user is logged in, else show LoginActivity
         if (!auth.isUserLoggedIn()) {
-            auth.saveUser("offline@user.com", "1234")  // default dummy login
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
         }
 
         binding.btnScan.setOnClickListener {
             startActivity(Intent(this, QRScannerActivity::class.java))
         }
 
-        // btnEncode ko hata kar btnGenerate ka use karein
         binding.btnGenerate.setOnClickListener {
             startActivity(Intent(this, QRGeneratorActivity::class.java))
         }
 
-        // Optional: Logout button ka bhi handler laga dein
+        binding.btnEncode.setOnClickListener {
+            // Encoding logic will be added in next steps
+        }
+
         binding.btnLogout.setOnClickListener {
-            // Yahan logout ka logic ya naya intent laga sakte hain
             auth.logout()
-            // Example: LoginActivity dikhana
-            // startActivity(Intent(this, LoginActivity::class.java))
-            // finish()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 }
